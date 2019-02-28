@@ -2,3 +2,13 @@
 php/vendor
 php/.vimrc
 php/tags
+#Java
+# IDEA
+.idea
+*.iml
+out
+classes
+
+# Gradle
+.gradle
+build
