@@ -1,43 +1,54 @@
+import domain.Photo;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class InputReader {
 
     private String fileName;
 
     public InputReader(String fileName) {
-        this.fileName = "HashCode19/" + fileName + ".in";
+        this.fileName = "HashCode19/" + fileName + ".txt";
     }
 
-    public ArrayList<int[]> readFile() {
+    public List<Photo> readFile() {
         FileReader fr;
         BufferedReader br;
 
         String fileLine;
         String[] fileArray;
 
-        ArrayList<int[]> file = new ArrayList<>();
-        int[] outputArray;
+        List<Photo> photos = null;
 
         try {
             fr = new FileReader(fileName);
             br = new BufferedReader(fr);
+            fileLine = br.readLine();
+            int photosNum = Integer.parseInt(fileLine);
+
+            photos = new ArrayList<>(photosNum);
+
+            int id = 0;
 
             while ((fileLine = br.readLine()) != null) {
-                outputArray = new int[6];
                 fileArray = fileLine.split(" ");
 
+                String orientation = fileArray[0];
+                int numoftags = Integer.parseInt(fileArray[1]);
 
-                for(int i = 0; i < fileArray.length; i++) {
-                    outputArray[i] = Integer.parseInt(fileArray[i]);
-                    System.out.println(outputArray[i]);
+                List<String> tags = new ArrayList<>(numoftags);
+                for(int i = 2; i < numoftags+2; i++) {
+                    tags.add(fileArray[i]);
+                    //System.out.println(outputArray[i]);
                 }
 
+                Photo photo = new Photo(id++, tags, orientation);
 
-                file.add(outputArray);
+                photos.add(photo);
             }
 
 
@@ -47,7 +58,7 @@ public class InputReader {
             System.out.println("I/O Exception");
         }
 
-        return file;
+        return photos;
     }
 
 }
