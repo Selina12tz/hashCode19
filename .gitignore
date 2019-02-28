@@ -2,6 +2,9 @@
 php/vendor
 php/.vimrc
 php/tags
+source.zip
+*.swp
+
 #Java
 # IDEA
 .idea
