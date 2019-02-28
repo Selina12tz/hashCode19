@@ -22,4 +22,12 @@ public class Slideshow {
         });
         return b.toString();
     }
+
+    public List<Slide> getSlides() {
+        return slides;
+    }
+
+    public int getSize() {
+        return slides.size();
+    }
 }

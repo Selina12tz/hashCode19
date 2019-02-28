@@ -19,5 +19,8 @@ public class Main {
 
         System.out.println(slideshow.toFile());
 
+        OutputWriter outputWriter = new OutputWriter("a_example");
+        outputWriter.writeFile(slideshow);
+
     }
 }
