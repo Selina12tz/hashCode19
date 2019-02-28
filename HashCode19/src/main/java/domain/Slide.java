@@ -27,6 +27,10 @@ public class Slide {
         orientation = photo1.getOrientation();
     }
 
+    public Set<String> getTags() {
+        return tags;
+    }
+
     @Override
     public String toString() {
         return "domain.Slide{" +
