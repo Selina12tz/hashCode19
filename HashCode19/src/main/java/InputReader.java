@@ -9,7 +9,7 @@ public class InputReader {
     private String fileName;
 
     public InputReader(String fileName) {
-        this.fileName = "input_files/" + fileName + ".in";
+        this.fileName = "HashCode19/" + fileName + ".in";
     }
 
     public ArrayList<int[]> readFile() {
