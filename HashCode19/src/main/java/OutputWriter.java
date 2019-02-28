@@ -1,3 +1,6 @@
+import domain.Slide;
+import domain.Slideshow;
+
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -11,22 +14,21 @@ public class OutputWriter {
     private String fileName;
 
     public OutputWriter(String fileName) {
-        this.fileName = "output_files/" + fileName + ".out";
+        this.fileName = "HashCode19/output_files/" + fileName + ".out";
     }
 
-    public void writeFile(ArrayList<ArrayList<Integer>> output) {
+    public void writeFile(Slideshow slideshow) {
 
         try {
+
             FileOutputStream fsw = new FileOutputStream(fileName);
             OutputStreamWriter osw = new OutputStreamWriter(fsw, "utf-8");
             BufferedWriter bw = new BufferedWriter(osw);
 
-            for (ArrayList<Integer> outputLine : output) {
-                String outputString = "";
-                for (int i : outputLine) {
-                    outputString += i + " ";
-                }
-                bw.write(outputString);
+            bw.write(""+slideshow.getSize());
+            bw.newLine();
+            for (Slide slide : slideshow.getSlides()) {
+                bw.write(slide.toFile());
                 bw.newLine();
             }
 
@@ -42,6 +44,7 @@ public class OutputWriter {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
     }
 
 }
