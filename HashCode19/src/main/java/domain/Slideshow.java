@@ -9,6 +9,13 @@ public class Slideshow {
 
     List<Slide> slides = new ArrayList<>();
 
+    public Slideshow(List<Slide> slides) {
+        this.slides = slides;
+    }
+
+    public Slideshow() {
+    }
+
     public void addSlide(Slide slide) {
         slides.add(slide);
     }
