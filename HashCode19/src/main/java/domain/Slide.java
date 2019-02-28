@@ -2,13 +2,15 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class Slide {
     Photo photo;
     Photo photos[] = new Photo[2];
-    List<String> tags = new ArrayList();
+    Set<String> tags = new HashSet<>();
     String orientation;
 
     public Slide(Photo photo) {
