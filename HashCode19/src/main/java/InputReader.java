@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class InputReader {
 
@@ -46,7 +48,7 @@ public class InputReader {
                     //System.out.println(outputArray[i]);
                 }
 
-                Photo photo = new Photo(id++, tags, orientation);
+                Photo photo = new Photo(id++, new HashSet<>(tags), orientation);
 
                 photos.add(photo);
             }

@@ -10,7 +10,7 @@ import java.util.Set;
 public class Slide {
     Photo photo;
     Photo photos[] = new Photo[2];
-    Set<String> tags = new HashSet<>();
+    HashSet<String> tags = new HashSet<>();
     String orientation;
 
     public Slide(Photo photo) {
@@ -23,12 +23,40 @@ public class Slide {
         this.photos[0] = photo1;
         this.photos[1] = photo2;
         tags.addAll(photo1.getTags());
-        tags.addAll(photo1.getTags());
+        tags.addAll(photo2.getTags());
         orientation = photo1.getOrientation();
     }
 
-    public Set<String> getTags() {
+    public HashSet<String> getTags() {
         return tags;
+    }
+
+    public Photo getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(Photo photo) {
+        this.photo = photo;
+    }
+
+    public Photo[] getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(Photo[] photos) {
+        this.photos = photos;
+    }
+
+    public void setTags(HashSet<String> tags) {
+        this.tags = tags;
+    }
+
+    public String getOrientation() {
+        return orientation;
+    }
+
+    public void setOrientation(String orientation) {
+        this.orientation = orientation;
     }
 
     @Override
@@ -57,10 +85,10 @@ public class Slide {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Slide slide = (Slide) o;
-        return Objects.equals(photo, slide.photo) &&
+        return photo.equals(slide.photo) &&
                 Arrays.equals(photos, slide.photos) &&
-                Objects.equals(tags, slide.tags) &&
-                Objects.equals(orientation, slide.orientation);
+                tags.equals(slide.tags) &&
+                orientation.equals(slide.orientation);
     }
 
     @Override

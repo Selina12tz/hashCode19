@@ -1,5 +1,4 @@
 import domain.Photo;
-import domain.Slide;
 import domain.Slideshow;
 
 import java.util.List;
@@ -12,6 +11,9 @@ public class Main {
         InputReader inputReader = new InputReader("a_example");
         List<Photo> photos = inputReader.readFile();
         System.out.println(photos);
+
+        Solution solutionSotiria = new SotiriaSolution(photos);
+        ((SotiriaSolution) solutionSotiria).findLessTagsinVertical();
 
         Solution solution = new MockSolution();
 

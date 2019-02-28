@@ -1,18 +1,20 @@
 package domain;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Photo {
-    public Photo(int id, List<String> tags) {
+
+    public Photo(int id, Set<String> tags) {
         this.id = id;
         this.tags = tags;
     }
 
     int id;
-    List<String> tags;
+    Set<String> tags;
     String orientation;
 
-    public Photo(int id, List<String> tags, String orientation) {
+    public Photo(int id, Set<String> tags, String orientation) {
         this.id = id;
         this.tags = tags;
         this.orientation = orientation;
@@ -26,11 +28,11 @@ public class Photo {
         this.id = id;
     }
 
-    public List<String> getTags() {
+    public Set<String> getTags() {
         return tags;
     }
 
-    public void setTags(List<String> tags) {
+    public void setTags(Set<String> tags) {
         this.tags = tags;
     }
 
