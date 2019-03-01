@@ -79,16 +79,15 @@ public class Slide {
         }
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Slide slide = (Slide) o;
-        return photo.equals(slide.photo) &&
+        return Objects.equals(photo, slide.photo) &&
                 Arrays.equals(photos, slide.photos) &&
-                tags.equals(slide.tags) &&
-                orientation.equals(slide.orientation);
+                Objects.equals(tags, slide.tags) &&
+                Objects.equals(orientation, slide.orientation);
     }
 
     @Override

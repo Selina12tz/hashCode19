@@ -1,20 +1,15 @@
-import com.google.common.collect.Lists;
 import domain.Photo;
-import domain.Slide;
 import domain.Slideshow;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import org.apache.commons.lang3.tuple.Pair;
-
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class SotiriaSolution implements Solution{
+    @Override
+    public Slideshow solve(List<Photo> photos) {
+        return null;
+    }
+
+    /*
 
     List<Photo> photos;
     Map<Pair<Photo, Photo>, Double> mapOfVerticalsWeighted= new HashMap<>();
@@ -109,6 +104,6 @@ public class SotiriaSolution implements Solution{
         return slideshow;
     }
 
-
+*/
 
 }

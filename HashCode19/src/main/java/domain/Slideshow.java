@@ -37,4 +37,8 @@ public class Slideshow {
     public int getSize() {
         return slides.size();
     }
+
+    public Slide getLastSlide() {
+        return slides.get(slides.size()-1);
+    }
 }
