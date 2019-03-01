@@ -6,26 +6,19 @@ namespace App;
 
 class Output
 {
-    /** @var Slice[] $slices */
-    private $slices = [];
+    /** @var Slide[] $slides */
+    private $slides = [];
 
-    public function addSlice(Slice $slice): void
+    public function addSlide(Slide $slide): void
     {
-        $this->slices[] = $slice;
-    }
-
-    public function addRow(Row $row): void
-    {
-        foreach ($row->getSlices() as $slice) {
-            $this->slices[] = $slice;
-        }
+        $this->slides[] = $slide;
     }
 
     public function __toString(): string
     {
-        $string = count($this->slices) . "\n";
-        foreach ($this->slices as $slice) {
-            $string .= $slice . "\n";
+        $string = count($this->slides) . "\n";
+        foreach ($this->slides as $slide) {
+            $string .= $slide . "\n";
         }
         return $string;
     }

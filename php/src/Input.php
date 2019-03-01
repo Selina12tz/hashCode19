@@ -6,65 +6,30 @@ namespace App;
 
 class Input
 {
-    // Rows
-    private $R;
-
-    // Columns
-    private $C;
-
-    // Minimum of each ingredient in slice
-    private $L;
-
-    // Maximum cells of slice
-    private $H;
-
-    /** @var string[] $pizza */
-    private $pizza;
+    private $fileHandle;
 
     public function __construct(string $filename)
     {
-        $f = fopen($filename, 'r');
-        if ($f !== false) {
-            $this->parseInputFile($f);
+        $this->fileHandle = fopen($filename, 'r');
+        if ($this->fileHandle === false) {
+            throw new \Exception('Cannot open input file');
         }
     }
 
-    public function getR(): int
-    {
-        return $this->R;
-    }
-
-    public function getC(): int
-    {
-        return $this->C;
-    }
-
-    public function getL(): int
-    {
-        return $this->L;
-    }
-
-    public function getH(): int
-    {
-        return $this->H;
-    }
-
-    public function getPizza(): array
-    {
-        return $this->pizza;
-    }
-
-    private function parseInputFile($handle): void
+    public function parsePhotos(): array
     {
         $isFirstLine = true;
-        $this->pizza = [];
-        while ($line = fgets($handle)) {
+        $photos = [];
+        $id = 0;
+        while ($line = fgets($this->fileHandle)) {
             if ($isFirstLine) {
-                list($this->R, $this->C, $this->L, $this->H) = array_map('intval', explode(' ', $line));
                 $isFirstLine = false;
             } else {
-                $this->pizza[] = trim($line);
+                list($orientation, $tagNumber, $tags) = explode(' ', trim($line), 3);
+                $photos[] = new Photo($id, $orientation, $tags);
+                $id++;
             }
         }
+        return $photos;
     }
 }
